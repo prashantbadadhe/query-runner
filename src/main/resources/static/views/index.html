@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Main Page</title>
+</head>
+<style>
+.dropdown-size {
+	width: 300px;
+}
+
+table, th, td, tr, tbody {
+	border: 2px solid black;
+	padding: 5px;
+}
+</style>
+<body ng-app="demo">
+	<div class="container" ng-controller="QueryController">
+		<div class="row">
+			<div>
+				<br> <br>
+				<p>
+					<b>Please select your choice:</b> <select
+						ng-model="queryDto.queryKey" class="dropdown-size">
+						<option ng-repeat="query in allQueries" value="{{query.queryKey}}">{{query.queryKey}}:
+							{{query.queryName}}</option>
+					</select> <b><br> <br>You selected: <u>{{queryDto.queryKey}}
+					</u></b>
+
+					<button ng-click="getQueryResult()" class="btn btn-sm btn-info">Click
+						For Result</button>
+			</div>
+			</p>
+		</div>
+		<div class="row">
+			<table class="result">
+				<tr ng-repeat="row in resultArr">
+					<td ng-repeat="col in row">{{ col }}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="row">
+			<h3>Your Query List</h3>
+			<p ng-repeat="query in allQueries" value="{{query.queryKey}}">
+				<b>{{query.queryKey}}:</b> {{query.queryName}}
+			</p>
+		</div>
+		<div class="row">
+			<div>
+				<br> <br>
+				<p>
+					<b>Please select your choice:</b> <select
+						ng-model="queryDto.queryKey" class="dropdown-size">
+						<option ng-repeat="query in allQueries" value="{{query.queryKey}}">{{query.queryKey}}:
+							{{query.queryName}}</option>
+					</select> <b><br> <br>You selected: <u>{{queryDto.queryKey}}
+					</u></b>
+
+					<button ng-click="getQueryResult()" class="btn btn-sm btn-info">Click
+						For Result</button>
+			</div>
+			</p>
+		</div>
+	</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/QueryController.js"></script>
+<script src="js/app/QueryService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="css/app/app.css" />
+</html>
